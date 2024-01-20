@@ -16,24 +16,41 @@
     </ul>
     <script>
         // Relevant link: https://youtu.be/5fb2aPlgoys?si=oOB2OYliN078Ensg first 30 minutes of the video
-
         // Todo 2.1 Select the unordered list with the id "subjects-taken"
+
+        console.log(document.getElementById('subjects-taken'))
+
         // Relevant Link: https://dev.to/alternate_robot/dom-selectors-in-javascript-344i
         
         // Checkpoint 2.1 What are the other ways to select elements in the DOM?
-        // Answer: 
+        // Answer: Other ways to select DOM elements is by selecting its class names or tag names. It is similar to CSS selectors.
         
         // Todo 2.2 Set the text of the first list item to "<>"
 
+        const item = document.getElementsByTagName("li");
+        item[0].innerText = "<>";
+
         // Checkpoint 3.2 What is the difference between innerText, textContent, and innerHTML. When should you use one over the other
-        // Answer:
+        // Answer: With innerText, it returns all text contained by an html element including its child elements. The text can be modified by using a plain text.
+        // As for textContent, it is the DOM Property that is used to get or set a text in an HTML element. The text can be modified by traditional modifications.
+        // Additionally innerHTML is used to format but it is in inline format, the text comes with format tags.
 
         // Todo 2.3 Create another list item, and add it as a child of the unordered list
         // Relevant Link: https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/How_to_create_a_DOM_tree
 
+        const newNode = document.createElement("li");
+        const nodeItem = document.createTextNode("IT133 - Technopreneurship");
+        newNode.appendChild(nodeItem);
+        document.getElementById("subjects-taken").appendChild(newNode);
+
         // Todo 2.4 Set the id attribute of the list item you created to "favorite-subject". Set the class of the list item to "newly-created"
 
+        newNode.setAttribute("id","favorite-subject");
+        newNode.setAttribute("class","newly-created");
+
         // Todo 2.5 Delete the second list item in the unordered list
+
+        #favorite-subject.removeChild("CS100 - Discrete Structures 1");
 
         // Checkpoint 2.3 Checkpoint what is the difference between node and element
 

@@ -15,13 +15,35 @@
             // Resource: https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
 
             // Checkpoint 4.1 What are HTTP requests and reponses? What are the various HTTP verbs and what do they do?
-            // Answer: 
+            // Answer: HTTP request are request made when you want to connect to a specific server, as for HTTP response,
+            // when the server receives an HTTP request, it will process the request and send an HTTP response.
+            // Here are some of HTTP verbs:
+            // 1. GET - Retrieves data from the specified resource.
+            // 2. POST - Submit data to be processed to a specified resource.
+            // 3. PUT - Update a resource or create a new resource if it does not exist.
+            // 4. TRACE - Perform a message loop-back test along the path to the target resource.
 
-            // Todo 4.1 Fetch the list of users. Outout the first and second page of users.
+            // Todo 4.1 Fetch the list of users. Output the first and second page of users.
+       
+            /*fetch('https://reqres.in/api/users?page=1')
+                .then(response => response.json())
+                .then(data => console.log(data))
 
+            fetch('https://reqres.in/api/users?page=2')
+                .then(response => response.json())
+                .then(data => console.log(data))
+        
             // Todo 4.2 Fetch the information about a single user. Display their information
 
+            fetch('https://reqres.in/api/users/2')
+                .then(response => response.json())
+                .then(data => console.log(data))*/
+
             // Todo 4.3 Create a user
+
+            fetch('https://reqres.in/api/users')
+                .then(response => response.json())
+                .then(data => console.log(data))
 
             // Todo 4.4 Update the information of the user that you have created
 

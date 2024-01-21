@@ -49,14 +49,25 @@
         newNode.setAttribute("class","newly-created");
 
         // Todo 2.5 Delete the second list item in the unordered list
-
-        #favorite-subject.removeChild("CS100 - Discrete Structures 1");
+        const tempVar = document.getElementById("subjects-taken");
+        tempVar.removeChild(tempVar.getElementsByTagName("li")[1]);
 
         // Checkpoint 2.3 Checkpoint what is the difference between node and element
 
+        //The entire HTML document is a collection of document nodes, a node can represent elements, texts or contents.
+        //While element is specific type of DOM, they are building blocks of HTML represented by tags.
+
         // Bonus Todo 2.6 Select the parent of the unordered list.
+        const childElement = document.getElementById("subjects-taken");
+        const parent = childElement.parentNode;
 
         // Bonus Todo 2.7 Select the previous sibling of the list item you previously created
+
+        const parentElement = document.getElementById("subjects-taken");
+        const lastChild = parentElement.lastElementChild;
+        const prevSib = lastChild.previousElementSibling;
+        const childTxt = prevSib.innerText;
+
     </script>
 </body>
 

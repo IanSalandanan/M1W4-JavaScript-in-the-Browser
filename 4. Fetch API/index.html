@@ -24,8 +24,8 @@
             // 4. TRACE - Perform a message loop-back test along the path to the target resource.
 
             // Todo 4.1 Fetch the list of users. Output the first and second page of users.
-       
-            /*fetch('https://reqres.in/api/users?page=1')
+            
+            fetch('https://reqres.in/api/users?page=1')
                 .then(response => response.json())
                 .then(data => console.log(data))
 
@@ -37,20 +37,61 @@
 
             fetch('https://reqres.in/api/users/2')
                 .then(response => response.json())
-                .then(data => console.log(data))*/
+                .then(data => {
+                    console.log("User Information: ",data);
+                })
 
             // Todo 4.3 Create a user
 
-            fetch('https://reqres.in/api/users')
-                .then(response => response.json())
-                .then(data => console.log(data))
+            fetch('https://reqres.in/api/users', {
+                method: "POST",
+                headers: { 
+                    "Content-type": 'application/json'
+                },
+                body: JSON.stringify({
+                    name: "morpheus",
+                    job: "leader",
+                    age: "24"
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
 
             // Todo 4.4 Update the information of the user that you have created
 
+            const updatedUserData = {
+                name: "morpheus",
+                job: "zion resident",
+                age: "26"
+            };
+
+            fetch('https://reqres.in/api/users/2', {
+                method: "PUT",
+                headers: { 
+                    "Content-type": 'application/json'
+                },
+                body: JSON.stringify(updatedUserData)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+
             // Todo 4.5 Delete the user that you have created
+            fetch('https://reqres.in/api/users/2', {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'}})
+                .then(response => {
+                    if (!response.ok){
+                        console.log(`Error: ${response.statusText}`)
+                    } else {
+                        console.log('User Deleted.');
+                    }
+                 })
 
             // Checkpoint 4.2 What is the difference between callbacks, then-catch vs await-try-catch? When should you use one over the other
-            // Answer: 
+            // Answer: All of them are used for asynchronus programming. Callbacks are basically a function that is passed as an argument to another function,
+            // it is to be executed later. Callbacks are the traditional way of handling async calls however they pose issues like pyramid of doom.
+            // then-catch were introduced to patch the error of callback's pyramid of doom, then-catch allows chaining async operations and uses catch for any possible errors. Used to avoid the issue of callbacks.
+            // Await-try-catch is the newest addition to java, await is used to pause the execution until the promises were resolved. Paired with try-catch statements to resolve errors. 
         }
         start()
 
